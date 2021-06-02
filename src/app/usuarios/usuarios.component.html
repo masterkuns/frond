@@ -1,0 +1,135 @@
+<div class="container">
+  <div class="row py-5 mt-4 align-items-center">
+    <!-- For Demo Purpose -->
+    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <h1>Creacion de cuentas</h1>
+    </div>
+
+    <!-- Registeration Form -->
+    <div class="col-md-10 col-lg-6 ml-auto">
+      <form
+        class="col-md-7 col-lg-6 ml-auto"
+        #registerForm="ngForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <div class="row">
+          <!-- First Name -->
+          <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend"></div>
+
+            <input
+              id="nombres"
+              type="text"
+              name="nombres"
+              placeholder="nombres"
+              class="form-control bg-white border-left-0 border-md"
+              #nombres="ngModel"
+              [(ngModel)]="usuario.nombres"
+              required
+              pattern="[a-z A-Z]+"
+            />
+            <small
+              *ngIf="!nombres.valid && nombres.touched"
+              class="invalid-feedback d-block"
+            >
+              El nombre no es valido</small
+            >
+          </div>
+
+          <!-- Last Name -->
+          <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="apellidos"
+              type="text"
+              name="apellidos"
+              placeholder="apellidos"
+              #apellidos="ngModel"
+              [(ngModel)]="usuario.apellidos"
+              required
+              pattern="[a-z A-Z]+"
+              class="form-control bg-white border-left-0 border-md"
+            />
+            <small
+              *ngIf="!apellidos.valid && apellidos.touched"
+              class="invalid-feedback d-block"
+            >
+              El apellido no es valido
+            </small>
+          </div>
+
+          <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="documento"
+              type="number"
+              name="documento"
+              placeholder="documento"
+              class="form-control bg-white border-left-0 border-md"
+              #documento="ngModel"
+              [(ngModel)]="usuario.documentos"
+              required
+              pattern="[1-9]+"
+            />
+            <small
+              *ngIf="!documento.valid && documento.touched"
+              class="invalid-feedback d-block"
+            >
+              el documento no es valido
+            </small>
+          </div>
+
+          <!-- Email Address -->
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="email"
+              type="email"
+              name="correo"
+              placeholder="correo"
+              class="form-control bg-white border-left-0 border-md"
+              #correo="ngModel"
+              [(ngModel)]="usuario.correo"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            />
+            <small
+              *ngIf="!correo.valid && correo.touched"
+              class="invalid-feedback d-block"
+            >
+              el correo no es valido
+            </small>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="contraseña"
+              type="password"
+              name="contraseña"
+              placeholder="contraseña"
+              class="form-control bg-white border-left-0 border-md"
+            />
+          </div>
+
+          <!-- Password Confirmation -->
+
+          <!-- Submit Button -->
+
+          <input type="submit" value="Registrarme" class="btn btn-success" />
+
+          <!-- Divider Text -->
+
+          <!-- Already Registered -->
+          <div class="text-center w-100">
+            <p class="text-muted font-weight-bold">
+              Already Registered?
+              <a href="#" class="text-primary ml-2">Login</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
