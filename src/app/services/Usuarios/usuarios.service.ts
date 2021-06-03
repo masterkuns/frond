@@ -1,9 +1,26 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Usuarios } from '../../modelos/usuario';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UsuariosService {
+  private URL = "http://localhost/rest-proyectos-laravel/public/api/";
 
-  constructor() { }
+  constructor(
+    public httpClient: HttpClient
+  ) {
+
+
+  }
+  register(usuarios: Usuarios): Observable<any> {
+    let json = JSON.stringify(usuarios);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.httpClient.post(this.URL + 'register', params, { headers: headers });
+  }
+
 }

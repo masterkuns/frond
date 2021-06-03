@@ -8,13 +8,17 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AdminComponent } from './admin/admin.component';
+import { CoordinadorComponent } from './coordinador/coordinador.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UsuariosComponent,
-    LoginComponent
+    LoginComponent,
+    AdminComponent,
+    CoordinadorComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuarios } from '../modelos/usuario'
+import { UsuariosService } from '../services/Usuarios/usuarios.service'
+import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
+import { environment } from '../../environments/environment';
+
 
 @Component({
   selector: 'app-usuarios',
@@ -9,8 +13,9 @@ import { Usuarios } from '../modelos/usuario'
 export class UsuariosComponent implements OnInit {
   pageTitle: String;
   public usuario: Usuarios;
-  constructor() {
-    this.pageTitle = "",
+
+  constructor(private usuarioService: UsuariosService) {
+    this.pageTitle = "registro",
       this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
   }
 
@@ -18,8 +23,13 @@ export class UsuariosComponent implements OnInit {
 
 
   }
-  onSubmit() {
-
+  onSubmit(Form: any) {
+    this.usuarioService.register(this.usuario).subscribe(response => {
+      console.log(response)
+      Form.reset();
+    }, error => {
+      console.log(<any>error)
+    })
 
   }
 }

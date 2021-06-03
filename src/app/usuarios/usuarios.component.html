@@ -10,7 +10,7 @@
       <form
         class="col-md-7 col-lg-6 ml-auto"
         #registerForm="ngForm"
-        (ngSubmit)="onSubmit()"
+        (ngSubmit)="onSubmit(registerForm)"
       >
         <div class="row">
           <!-- First Name -->
@@ -32,7 +32,7 @@
               *ngIf="!nombres.valid && nombres.touched"
               class="invalid-feedback d-block"
             >
-              El nombre no es valido</small
+              *El nombre no es valido</small
             >
           </div>
 
@@ -54,7 +54,7 @@
               *ngIf="!apellidos.valid && apellidos.touched"
               class="invalid-feedback d-block"
             >
-              El apellido no es valido
+              *El apellido no es valido
             </small>
           </div>
 
@@ -75,7 +75,7 @@
               *ngIf="!documento.valid && documento.touched"
               class="invalid-feedback d-block"
             >
-              el documento no es valido
+              *el documento no es valido
             </small>
           </div>
 
@@ -97,7 +97,7 @@
               *ngIf="!correo.valid && correo.touched"
               class="invalid-feedback d-block"
             >
-              el correo no es valido
+              * el correo no es valido
             </small>
           </div>
 
@@ -109,22 +109,38 @@
               type="password"
               name="contraseña"
               placeholder="contraseña"
+              #contrasena="ngModel"
+              [(ngModel)]="usuario.contrasena"
+              required
+              pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
               class="form-control bg-white border-left-0 border-md"
             />
           </div>
-
+          <small
+            *ngIf="!contrasena.valid && contrasena.touched"
+            class="invalid-feedback d-block"
+          >
+            *La contraseña debe tener al entre 8 y 16 caracteres, al menos un
+            dígito, al menos una minúscula y al menos una mayúscula. Puede tener
+            otros símbolos.
+          </small>
           <!-- Password Confirmation -->
 
           <!-- Submit Button -->
 
-          <input type="submit" value="Registrarme" class="btn btn-success" />
+          <input
+            type="submit"
+            value="Registrarme"
+            class="btn btn-success"
+            [disabled]="registerForm.invalid"
+          />
 
           <!-- Divider Text -->
 
           <!-- Already Registered -->
           <div class="text-center w-100">
             <p class="text-muted font-weight-bold">
-              Already Registered?
+              Ya estas regstrado?
               <a href="#" class="text-primary ml-2">Login</a>
             </p>
           </div>
