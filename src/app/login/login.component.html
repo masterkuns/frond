@@ -1,1 +1,92 @@
-<p>login works!</p>
+<div class="container">
+  <div class="row py-5 mt-4 align-items-center">
+    <!-- For Demo Purpose -->
+    <div class="col-md-5 pr-lg-5 mb-5 mb-md-0">
+      <h1>{{ pageTitle }}</h1>
+    </div>
+
+    <!-- Registeration Form -->
+    <div class="col-md-7 col-lg-6 ml-auto">
+      <div class="alert alert-success" *ngIf="status == 'success'">
+        El registro se completo satisfactoriamente,
+        <a [routerLink]="['/login']">logueate aqui</a>
+      </div>
+      <div class="alert alert-danger" *ngIf="status == 'error'">
+        El Error debes intertarlo nuevamente
+      </div>
+      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+        <div class="row">
+          <!-- First Name -->
+
+          <!-- Last Name -->
+
+          <!-- Email Address -->
+          <div class="input-group col-lg-12 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="email"
+              type="email"
+              name="correo"
+              placeholder="correo"
+              class="form-control bg-white border-left-0 border-md"
+              #correo="ngModel"
+              [(ngModel)]="usuario.correo"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+            />
+            <small
+              *ngIf="!correo.valid && correo.touched"
+              class="invalid-feedback d-block"
+            >
+              * el correo no es valido
+            </small>
+          </div>
+
+          <!-- Password -->
+          <div class="input-group col-lg-6 mb-4">
+            <div class="input-group-prepend"></div>
+            <input
+              for="contraseña"
+              type="password"
+              name="contraseña"
+              placeholder="contraseña"
+              #contrasena="ngModel"
+              [(ngModel)]="usuario.contrasena"
+              required
+              pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+              class="form-control bg-white border-left-0 border-md"
+            />
+          </div>
+          <small
+            *ngIf="!contrasena.valid && contrasena.touched"
+            class="invalid-feedback d-block"
+          >
+            *La contraseña debe tener al entre 8 y 16 caracteres, al menos un
+            dígito, al menos una minúscula y al menos una mayúscula. Puede tener
+            otros símbolos.
+          </small>
+          <!-- Password Confirmation -->
+
+          <!-- Submit Button -->
+
+          <input
+            type="submit"
+            value="Registrarme"
+            class="btn btn-success"
+            [disabled]="registerForm.invalid"
+          />
+
+          <!-- Divider Text -->
+
+          <!-- Already Registered -->
+          <div class="text-center w-100">
+            <p class="text-muted font-weight-bold">
+              Ya estas regstrado?
+              <a href="#" class="text-primary ml-2">Login</a>
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

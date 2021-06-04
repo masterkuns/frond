@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuarios } from '../modelos/usuario'
 import { UsuariosService } from '../services/Usuarios/usuarios.service'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-import { environment } from '../../environments/environment';
+
 
 
 @Component({
@@ -13,10 +13,12 @@ import { environment } from '../../environments/environment';
 export class UsuariosComponent implements OnInit {
   pageTitle: String;
   public usuario: Usuarios;
+  public status: String;
 
   constructor(private usuarioService: UsuariosService) {
     this.pageTitle = "registro",
-      this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
+      this.status = "";
+    this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
   }
 
   ngOnInit(): void {
@@ -25,8 +27,14 @@ export class UsuariosComponent implements OnInit {
   }
   onSubmit(Form: any) {
     this.usuarioService.register(this.usuario).subscribe(response => {
-      console.log(response)
-      Form.reset();
+      if (response.status == "success") {
+        this.status = response.status;
+        Form.reset();
+      } else {
+        this.status = 'error'
+
+      }
+
     }, error => {
       console.log(<any>error)
     })
