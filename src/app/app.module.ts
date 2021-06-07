@@ -12,6 +12,7 @@ import { AdminComponent } from './admin/admin.component';
 import { CoordinadorComponent } from './coordinador/coordinador.component';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

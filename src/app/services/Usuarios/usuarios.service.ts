@@ -10,7 +10,8 @@ import { environment } from '../../../environments/environment';
 })
 export class UsuariosService {
   private URL = "http://localhost/rest-proyectos-laravel/public/api/";
-
+  public identity: any;
+  public token: any;
   constructor(
     public httpClient: HttpClient
   ) {
@@ -32,4 +33,31 @@ export class UsuariosService {
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.httpClient.post(this.URL + 'login', params, { headers: headers });
   }
+  getIdentity() {
+    let identity = JSON.parse(localStorage.getItem('identity') || '{}')
+    if (identity && identity != "undefined") {
+      this.identity = identity;
+      console.log(identity.apellidos);
+
+    } else {
+      this.identity = null;
+
+    }
+    return this.identity
+
+
+  }
+  getToken() {
+    let token = JSON.parse(localStorage.getItem('token') || '{}');
+    if (token && token != "undefined") {
+      this.token = token;
+
+    } else {
+      this.token = null;
+
+    }
+    return this.token;
+  }
+
+
 }

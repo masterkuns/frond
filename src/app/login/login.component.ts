@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
   public usuario: Usuarios;
   public status: string;
   public token: string;
-  public identity;
+  public identity: any;
   constructor(private usuarioService: UsuariosService) {
     this.pageTitle = "Identificate",
-      this.status = "";
+    this.status = "";
     this.token = '';
     this.identity = "";
     this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
