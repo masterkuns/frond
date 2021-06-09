@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AdminComponent } from './admin/admin.component';
 import { CoordinadorComponent } from './coordinador/coordinador.component';
-
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 
 @NgModule({
@@ -26,6 +26,7 @@ import { CoordinadorComponent } from './coordinador/coordinador.component';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
+        NgxPermissionsModule,
     AppRoutingModule
   ],
   providers: [],

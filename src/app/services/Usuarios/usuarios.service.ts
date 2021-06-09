@@ -37,7 +37,7 @@ export class UsuariosService {
     let identity = JSON.parse(localStorage.getItem('identity') || '{}')
     if (identity && identity != "undefined") {
       this.identity = identity;
-      console.log(identity.apellidos);
+
 
     } else {
       this.identity = null;
@@ -57,6 +57,12 @@ export class UsuariosService {
 
     }
     return this.token;
+  }
+
+  permissionsRole() {
+    this.getToken
+
+
   }
 
 
