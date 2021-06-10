@@ -1,0 +1,4 @@
+ADMINISTRADOR--SUPER-USU
+COORDINADOR--el encargado directo
+MONITORES ---encargados de las actividades
+NULL --- Usuarios normales de la app

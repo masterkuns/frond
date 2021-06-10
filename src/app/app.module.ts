@@ -8,9 +8,10 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { AdminComponent } from './admin/admin.component';
+
 import { CoordinadorComponent } from './coordinador/coordinador.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { DashboardComponent } from './general/dashboard/dashboard.component';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     AppComponent,
     UsuariosComponent,
     LoginComponent,
-    AdminComponent,
+    DashboardComponent,
     CoordinadorComponent
   ],
   imports: [
@@ -26,7 +27,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-        NgxPermissionsModule,
+    NgxPermissionsModule,
     AppRoutingModule
   ],
   providers: [],

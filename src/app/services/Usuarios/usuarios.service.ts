@@ -34,7 +34,7 @@ export class UsuariosService {
     return this.httpClient.post(this.URL + 'login', params, { headers: headers });
   }
   getIdentity() {
-    let identity = JSON.parse(localStorage.getItem('identity') || '{}')
+    let identity = JSON.parse(sessionStorage.getItem('identity') || '{}')
     if (identity && identity != "undefined") {
       this.identity = identity;
 

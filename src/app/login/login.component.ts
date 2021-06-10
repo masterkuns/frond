@@ -39,8 +39,10 @@ export class LoginComponent implements OnInit {
 
           //persitencia
 
-          localStorage.setItem('token', this.token);
-          localStorage.setItem('identity', JSON.stringify(this.identity));
+
+
+          sessionStorage.setItem('token', this.token);
+          sessionStorage.setItem('identity', JSON.stringify(this.identity));
           ;
 
           console.log("esta en una identifiacion" + this.identity.rol);

@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot } from '@angular/router';
-
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
 export class RouteGuardService {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
 
   public canActivate(route: ActivatedRouteSnapshot) {
@@ -14,6 +14,7 @@ export class RouteGuardService {
     if (user == 'ADMINISTRADOR') {
       return true;
     }
+    this.router.navigate(['/', 'login']);
     return false;
   }
 }

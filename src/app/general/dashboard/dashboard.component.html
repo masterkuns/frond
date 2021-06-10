@@ -1,1 +1,40 @@
-<p>dashboard works!</p>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+    <a
+      class="nav-item nav-link"
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+      >Home</a
+    >
+    <a class="nav-item nav-link" routerLink="login" routerLinkActive="active"
+      >Users</a
+    >
+    <a
+      class="nav-item nav-link"
+      routerLink="Administrador"
+      routerLinkActive="active"
+      >admin</a
+    >
+    <li class="nav-item dropdown">
+      <a
+        class="nav-link dropdown-toggle"
+        href="#"
+        id="navbarDropdown"
+        role="button"
+        data-toggle="dropdown"
+        aria-haspopup="true"
+        aria-expanded="false"
+      >
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <a class="dropdown-item" href="#">Action</a>
+        <a class="dropdown-item" href="#">Another action</a>
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+    <a class="nav-item nav-link">Logout</a>
+  </div>
+</nav>
+<router-outlet></router-outlet>

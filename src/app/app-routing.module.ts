@@ -4,27 +4,39 @@ import { LoginComponent } from './login/login.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { AdminComponent, } from './admin/admin.component';
 import { RouteGuardService } from './services/route-guard.service';
+import { DashboardComponent } from './general/dashboard/dashboard.component';
 
-const routes: Routes = [{ path: 'login', component: LoginComponent },
-{ path: 'usuarios', component: UsuariosComponent },
+const routes: Routes = [
+  {
+    path: '', component: DashboardComponent,
 
-{
-  path: 'Administrador',
-  canActivate: [RouteGuardService],
-  loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
-},
-{
-  path: 'general',
-  canActivate: [RouteGuardService],
-  loadChildren: () => import('./general/general.module').then(m => m.GeneralModule)
-},
-{
-  path: 'coordinador',
-  canActivate: [RouteGuardService],
-  loadChildren: () => import('./coordinador/coordinador.module').then(m => m.CoordinadorModule)
-},
-{ path: '', redirectTo: 'login', pathMatch: 'full' }
+    children: [
+      { path: 'login', component: LoginComponent },
+      {
+        path: 'general',
 
+        loadChildren: () => import('./general/general.module').then(m => m.GeneralModule)
+      },
+      {
+        path: 'coordinador',
+
+        loadChildren: () => import('./coordinador/coordinador.module').then(m => m.CoordinadorModule)
+      },
+
+
+    ]
+  },
+
+
+
+  {
+    path: 'Administrador',
+    canActivate: [RouteGuardService],
+    loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+  },
+
+
+  { path: '', redirectTo: 'login', pathMatch: 'full' }
 
 ];
 
