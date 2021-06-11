@@ -24,6 +24,12 @@ export class UsuariosService {
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.httpClient.post(this.URL + 'register', params, { headers: headers });
   }
+  registerAdmin(usuarios: Usuarios): Observable<any> {
+    let json = JSON.stringify(usuarios);
+    let params = 'json=' + json;
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.httpClient.post(this.URL + 'register/admin', params, { headers: headers });
+  }
   singUp(usuarios: any, gettoken = false): Observable<any> {
     if (gettoken != false) {
       usuarios.gettoken = true;

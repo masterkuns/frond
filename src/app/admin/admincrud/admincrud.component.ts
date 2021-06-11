@@ -1,28 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { Usuarios } from '../modelos/usuario'
-import { UsuariosService } from '../services/Usuarios/usuarios.service'
+import { UsuariosService } from '../../services/Usuarios/usuarios.service'
 import { FormBuilder, FormGroup, FormControl, Validators } from '@angular/forms';
-
-
-
+import { Usuarios } from '../../modelos/usuario'
 @Component({
-  selector: 'app-usuarios',
-  templateUrl: './usuarios.component.html',
-  styleUrls: ['./usuarios.component.css']
+  selector: 'app-admincrud',
+  templateUrl: './admincrud.component.html',
+  styleUrls: ['./admincrud.component.css']
 })
-export class UsuariosComponent implements OnInit {
+export class AdmincrudComponent implements OnInit {
   pageTitle: String;
   public usuario: Usuarios;
   public status: String;
-  usuarioForm = new FormGroup({
-    nombre: new FormControl(),
-    apellido: new FormControl(),
-    documentoIdentifcacion: new FormControl(),
-    tipoDocumento: new FormControl(),
-    estado: new FormControl(),
-    sexo: new FormControl(),
-
-  });
   constructor(private usuarioService: UsuariosService) {
     this.pageTitle = "registro",
       this.status = "";
@@ -30,11 +18,9 @@ export class UsuariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
-
   }
   onSubmit(Form: any) {
-    this.usuarioService.register(this.usuario).subscribe(response => {
+    this.usuarioService.registerAdmin(this.usuario).subscribe(response => {
       if (response.status == "success") {
         this.status = response.status;
         Form.reset();

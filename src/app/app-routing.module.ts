@@ -23,7 +23,7 @@ const routes: Routes = [
         loadChildren: () => import('./coordinador/coordinador.module').then(m => m.CoordinadorModule)
       },
 
-
+      { path: 'register', component: UsuariosComponent },
     ]
   },
 

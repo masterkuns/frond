@@ -1,13 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import * as $ from 'jquery';
+import { UsuariosService } from '../services/Usuarios/usuarios.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
+  title = 'proyecto Eventos';
+  public identity: any;
+  constructor(private usuarioService: UsuariosService) {
 
-  constructor() { }
+
+    this.identity = this.usuarioService.getIdentity();
+  }
 
   ngOnInit(): void {
     $(document).ready(function () {
