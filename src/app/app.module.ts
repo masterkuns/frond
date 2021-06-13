@@ -12,7 +12,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CoordinadorComponent } from './coordinador/coordinador.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { DashboardComponent } from './general/dashboard/dashboard.component';
-
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { DashboardComponent } from './general/dashboard/dashboard.component';
     HttpClientModule,
     FormsModule,
     NgxPermissionsModule,
+    MatTableModule,
     AppRoutingModule
   ],
   providers: [],

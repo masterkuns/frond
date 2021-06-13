@@ -1,130 +1,138 @@
-<div class="row">
-  <div class="col-sm-6">
-    <div class="card">
-      <div class="card-header">
-        <strong>Formulado para registar otro administrador</strong>
-      </div>
-      <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
-        <div class="card-body">
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">nombres</label>
-                <input
-                  id="nombres"
-                  type="text"
-                  name="nombres"
-                  placeholder="nombres"
-                  class="form-control bg-white border-left-0 border-md"
-                  #nombres="ngModel"
-                  [(ngModel)]="usuario.nombres"
-                  required
-                  pattern="[a-z A-Z]+"
-                />
-                <small
-                  *ngIf="!nombres.valid && nombres.touched"
-                  class="invalid-feedback d-block"
-                >
-                  *El nombre no es valido</small
-                >
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">apellidos</label>
-                <input
-                  for="apellidos"
-                  type="text"
-                  name="apellidos"
-                  placeholder="apellidos"
-                  #apellidos="ngModel"
-                  [(ngModel)]="usuario.apellidos"
-                  required
-                  pattern="[a-z A-Z]+"
-                  class="form-control bg-white border-left-0 border-md"
-                />
-                <small
-                  *ngIf="!apellidos.valid && apellidos.touched"
-                  class="invalid-feedback d-block"
-                >
-                  *El apellido no es valido
-                </small>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">documentos</label>
-                <input
-                  for="documento"
-                  type="number"
-                  name="documento"
-                  placeholder="documento"
-                  class="form-control bg-white border-left-0 border-md"
-                  #documento="ngModel"
-                  [(ngModel)]="usuario.documentos"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-12">
-              <div class="form-group">
-                <label for="name">correo</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  for="email"
-                  type="email"
-                  name="correo"
-                  placeholder="correo"
-                  class="form-control bg-white border-left-0 border-md"
-                  #correo="ngModel"
-                  [(ngModel)]="usuario.correo"
-                  placeholder="Ingresa el correo"
-                />
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-group col-lg-6 mb-4">
-              <div class="input-group-prepend"></div>
-              <input
-                for="contraseña"
-                type="password"
-                name="contraseña"
-                placeholder="contraseña"
-                #contrasena="ngModel"
-                [(ngModel)]="usuario.contrasena"
-                required
-                pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
-                class="form-control bg-white border-left-0 border-md"
-              />
-            </div>
-            <small
-              *ngIf="!contrasena.valid && contrasena.touched"
-              class="invalid-feedback d-block"
-            >
-              *La contraseña debe tener al entre 8 y 16 caracteres, al menos un
-              dígito, al menos una minúscula y al menos una mayúscula. Puede
-              tener otros símbolos.
-            </small>
-          </div>
-          <!--/.row-->
-          <input
-            type="submit"
-            value="Registrarme"
-            class="btn btn-success"
-            [disabled]="registerForm.invalid"
-          />
-          <!--/.row-->
-
-          <!--/.row-->
+<div class="container">
+  <div class="row">
+    <div>
+      <input (change)="capturarFile($event)" type="file" />
+    </div>
+    <div>
+      <button type="button" (click)="subirArchivo()">subir archico</button>
+    </div>
+    <div class="col-sm-7">
+      <div class="card center">
+        <div class="card-header">
+          <strong>Formulado para registar otro administrador</strong>
         </div>
-      </form>
+        <form #registerForm="ngForm" (ngSubmit)="onSubmit(registerForm)">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">nombres</label>
+                  <input
+                    id="nombres"
+                    type="text"
+                    name="nombres"
+                    placeholder="nombres"
+                    class="form-control bg-white border-left-0 border-md"
+                    #nombres="ngModel"
+                    [(ngModel)]="usuario.nombres"
+                    required
+                    pattern="[a-z A-Z]+"
+                  />
+                  <small
+                    *ngIf="!nombres.valid && nombres.touched"
+                    class="invalid-feedback d-block"
+                  >
+                    *El nombre no es valido</small
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">apellidos</label>
+                  <input
+                    for="apellidos"
+                    type="text"
+                    name="apellidos"
+                    placeholder="apellidos"
+                    #apellidos="ngModel"
+                    [(ngModel)]="usuario.apellidos"
+                    required
+                    pattern="[a-z A-Z]+"
+                    class="form-control bg-white border-left-0 border-md"
+                  />
+                  <small
+                    *ngIf="!apellidos.valid && apellidos.touched"
+                    class="invalid-feedback d-block"
+                  >
+                    *El apellido no es valido
+                  </small>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">documentos</label>
+                  <input
+                    for="documento"
+                    type="number"
+                    name="documento"
+                    placeholder="documento"
+                    class="form-control bg-white border-left-0 border-md"
+                    #documento="ngModel"
+                    [(ngModel)]="usuario.documentos"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="form-group">
+                  <label for="name">correo</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    for="email"
+                    type="email"
+                    name="correo"
+                    placeholder="correo"
+                    class="form-control bg-white border-left-0 border-md"
+                    #correo="ngModel"
+                    [(ngModel)]="usuario.correo"
+                    placeholder="Ingresa el correo"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-group col-lg-6 mb-4">
+                <div class="input-group-prepend"></div>
+                <input
+                  for="contraseña"
+                  type="password"
+                  name="contraseña"
+                  placeholder="contraseña"
+                  #contrasena="ngModel"
+                  [(ngModel)]="usuario.contrasena"
+                  required
+                  pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
+                  class="form-control bg-white border-left-0 border-md"
+                />
+              </div>
+              <small
+                *ngIf="!contrasena.valid && contrasena.touched"
+                class="invalid-feedback d-block"
+              >
+                *La contraseña debe tener al entre 8 y 16 caracteres, al menos
+                un dígito, al menos una minúscula y al menos una mayúscula.
+                Puede tener otros símbolos.
+              </small>
+            </div>
+            <!--/.row-->
+            <input
+              type="submit"
+              value="Registrarme"
+              class="btn btn-success"
+              [disabled]="registerForm.invalid"
+            />
+            <!--/.row-->
+
+            <!--/.row-->
+          </div>
+        </form>
+      </div>
     </div>
   </div>
 </div>

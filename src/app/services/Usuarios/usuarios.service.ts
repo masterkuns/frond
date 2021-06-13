@@ -10,6 +10,7 @@ import { environment } from '../../../environments/environment';
 })
 export class UsuariosService {
   private URL = "http://localhost/rest-proyectos-laravel/public/api/";
+  private URLs = "http://localhost/rest-proyectos-laravel/public/api/user/excel";
   public identity: any;
   public token: any;
   constructor(
@@ -69,6 +70,11 @@ export class UsuariosService {
     this.getToken
 
 
+  }
+
+  subirUsuarios(archivo: any) {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.httpClient.post(this.URLs, archivo, { headers: headers });
   }
 
 

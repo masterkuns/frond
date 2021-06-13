@@ -8,6 +8,7 @@ import { Usuarios } from '../../modelos/usuario'
   styleUrls: ['./admincrud.component.css']
 })
 export class AdmincrudComponent implements OnInit {
+  public archivos: any = [];
   pageTitle: String;
   public usuario: Usuarios;
   public status: String;
@@ -34,4 +35,27 @@ export class AdmincrudComponent implements OnInit {
     })
 
   }
+  capturarFile(event: any): any {
+    const archivoCapturado = event.target.files[0];
+    this.archivos.push(archivoCapturado)
+    console.log(event);
+  }
+  subirArchivo(): any {
+    try {
+      const formularioDatos = new FormData();
+      this.archivos.forEach((archivo: any) => {
+        console.log(archivo);
+        formularioDatos.append('file', archivo);
+      });
+      this.usuarioService.subirUsuarios(formularioDatos).subscribe(res => {
+        7
+        console.log('respuesta', res);
+      })
+
+    } catch (error) {
+      console.log('error', error)
+    }
+
+  }
+
 }

@@ -1,0 +1,24 @@
+.center {
+  margin: auto;
+  float: right;
+  width: 100%;
+  border: 3px solid black;
+  padding: auto;
+}
+
+.input{
+
+  border: 3px solid black;
+}
+
+.right{ 
+
+  margin: auto;
+  float: right;
+
+
+  
+
+  
+}
+
