@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
@@ -13,7 +13,7 @@ import { CoordinadorComponent } from './coordinador/coordinador.component';
 import { NgxPermissionsModule } from 'ngx-permissions';
 import { DashboardComponent } from './general/dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
-
+import { MatPaginatorModule } from '@angular/material/paginator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,10 +25,12 @@ import { MatTableModule } from '@angular/material/table';
   imports: [
     BrowserModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     FormsModule,
     NgxPermissionsModule,
     MatTableModule,
+    MatPaginatorModule,
     AppRoutingModule
   ],
   providers: [],

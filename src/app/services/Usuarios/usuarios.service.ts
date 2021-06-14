@@ -76,6 +76,11 @@ export class UsuariosService {
     let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
     return this.httpClient.post(this.URLs, archivo, { headers: headers });
   }
+  getAllCoordinadores(): Observable<any> {
+    let headers = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
+    return this.httpClient.get(this.URL + 'user/corrdinadores', { headers: headers });
+
+  }
 
 
 }
