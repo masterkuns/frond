@@ -82,5 +82,10 @@ export class UsuariosService {
 
   }
 
+  deleteUser(id: any): Observable<any> {
+
+    return this.httpClient.delete(this.URL + 'user/delete/' + id);
+  }
+
 
 }
