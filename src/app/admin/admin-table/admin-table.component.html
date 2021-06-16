@@ -4,6 +4,12 @@
     <mat-icon>search</mat-icon>
     <input (keyup)="applyFilter($event)" matInput placeholder="Filter" />
   </mat-form-field>
+  <div class="container-btn-new">
+    <button mat-stroked-button (click)="nuevoUsuario()">
+      <mat-icon>note_add </mat-icon>
+      &nbsp; nuevo usuario
+    </button>
+  </div>
 
   <table mat-table [dataSource]="dataSource" matSort>
     <!-- Position Column -->

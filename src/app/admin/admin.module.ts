@@ -16,16 +16,21 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AdminModalComponent } from './admin-modal/admin-modal.component';
+
 
 @NgModule({
   declarations: [
     AdminHomeComponent,
     AdminComponent,
     AdmincrudComponent,
-    AdminTableComponent
+    AdminTableComponent,
+    AdminModalComponent
   ],
   imports: [
     CommonModule,
+
     ReactiveFormsModule,
     MatSortModule,
     MatFormFieldModule,
@@ -33,6 +38,7 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTableModule,
     FormsModule,
+    MatDialogModule,
     MatPaginatorModule,
     MatIconModule,
     MatButtonModule,

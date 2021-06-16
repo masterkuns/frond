@@ -4,6 +4,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { UsuariosService } from '../../services/Usuarios/usuarios.service';
 import Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
+import { AdminModalComponent } from '../admin-modal/admin-modal.component'
 
 
 @Component({
@@ -20,7 +22,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
 
 
 
-  constructor(private usuarioService: UsuariosService) { }
+  constructor(private usuarioService: UsuariosService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.usuarioService.getAllCoordinadores().subscribe(result => {
@@ -79,6 +81,20 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
 
     return id;
 
+  }
+  nuevoUsuario() {
+
+    this.openDialog();
+
+  }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AdminModalComponent)
+    dialogRef.afterClosed().subscribe(res => {
+
+
+
+    })
   }
 
 }

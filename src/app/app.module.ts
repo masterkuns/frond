@@ -14,6 +14,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 import { DashboardComponent } from './general/dashboard/dashboard.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { AdminModalComponent } from './admin/admin-modal/admin-modal.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +34,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatPaginatorModule,
     AppRoutingModule
   ],
+  entryComponents: [AdminModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
