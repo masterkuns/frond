@@ -8,7 +8,7 @@ export class Usuarios {
     public contrasena: string,
     public rol: string,
     public correo: string,
-    public image: string
+    public image?: string
 
 
 
