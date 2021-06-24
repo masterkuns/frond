@@ -8,7 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 export class AdminModalComponent implements OnInit {
 
   constructor(public dialog: MatDialogRef<AdminModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public message: string) { }
+    @Inject(MAT_DIALOG_DATA) public data: any) { }
 
   ngOnInit(): void {
   }

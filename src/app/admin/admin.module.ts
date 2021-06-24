@@ -18,6 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AdminModalComponent } from './admin-modal/admin-modal.component';
+import { EditarUsuarioComponent } from './editar-usuario/editar-usuario.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { AdminModalComponent } from './admin-modal/admin-modal.component';
     AdminComponent,
     AdmincrudComponent,
     AdminTableComponent,
-    AdminModalComponent
+    AdminModalComponent,
+    EditarUsuarioComponent
   ],
   imports: [
     CommonModule,

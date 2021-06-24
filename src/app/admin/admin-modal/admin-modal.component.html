@@ -1,5 +1,11 @@
-<h2>Nuevo Usuario{{ message }}</h2>
+<h2>Nuevo Usuario{{ data.message }}</h2>
 
 <mat-dialog-content class="dialog-content">
-  <app-admincrud></app-admincrud>
+  <div *ngIf="data.content; else showNewform">
+    <app-editar-usuario [usuario]="data.content"></app-editar-usuario>
+  </div>
+
+  <ng-template #showNewform>
+    <app-admincrud></app-admincrud>
+  </ng-template>
 </mat-dialog-content>

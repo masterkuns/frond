@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, AfterViewInit, Output, EventEmitter } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { Usuarios } from '../../modelos/usuario'
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { UsuariosService } from '../../services/Usuarios/usuarios.service';
@@ -18,6 +19,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   dataSource = new MatTableDataSource;
   token: any;
   parent = false;
+  public usuario: Usuarios;
   color: string;
   parentCount = false;
   @Output() private textoEmitido = new EventEmitter<string>();
@@ -28,6 +30,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
 
   constructor(private usuarioService: UsuariosService, public dialog: MatDialog) {
     this.color = "hola"
+    this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
 
   }
 
@@ -59,8 +62,8 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   applyFilter(event: any) {
     this.dataSource.filter = (event.target as HTMLInputElement).value;
   }
-  editUser(id: any) {
-    return id;
+  editUser(user: Usuarios) {
+    this.openDialog(user);
 
   }
   deleteUser(id: any) {
@@ -100,8 +103,16 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
     this.openDialog();
   }
 
-  openDialog(): void {
-    const dialogRef = this.dialog.open(AdminModalComponent)
+  openDialog(user?: Usuarios): void {
+    const config = {
+      data: {
+        message: user ? 'editar usuario' : 'nuevo Usuario',
+        content: user
+
+      }
+    };
+
+    const dialogRef = this.dialog.open(AdminModalComponent, config)
     dialogRef.afterClosed().subscribe(res => {
 
 
@@ -121,4 +132,6 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   actualizar(datoDelPopup: string) {
     this.color = datoDelPopup;
   }
+
+
 }
