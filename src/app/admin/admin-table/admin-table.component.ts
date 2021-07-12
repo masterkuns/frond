@@ -20,7 +20,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   token: any;
   parent = false;
   public usuario: Usuarios;
-  color: string;
+
   parentCount = false;
   @Output() private textoEmitido = new EventEmitter<string>();
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
@@ -29,7 +29,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
 
 
   constructor(private usuarioService: UsuariosService, public dialog: MatDialog) {
-    this.color = "hola"
+
     this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
 
   }
@@ -63,7 +63,11 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = (event.target as HTMLInputElement).value;
   }
   editUser(user: Usuarios) {
-    this.openDialog(user);
+    this.openDialog(user), {
+      width: '100%',
+      minHeight: 'calc(100vh - 90px)',
+      height: 'auto'
+    };
 
   }
   deleteUser(id: any) {
@@ -130,7 +134,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   }
 
   actualizar(datoDelPopup: string) {
-    this.color = datoDelPopup;
+
   }
 
 

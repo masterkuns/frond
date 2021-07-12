@@ -73,7 +73,7 @@
               [(ngModel)]="usuario.documentos"
               required
               placeholder="0000 0000 0000 0000"
-              pattern="[1 -12]+"
+              pattern="^((\d{8})|(\d{10})|(\d{11})|(\d{6}-\d{5}))?$ "
             />
             <small
               *ngIf="!documento.valid && documento.touched"
@@ -115,19 +115,11 @@
               placeholder="contraseña"
               #contrasena="ngModel"
               [(ngModel)]="usuario.contrasena"
-              required
               pattern="^(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$"
               class="form-control bg-white border-left-0 border-md"
             />
           </div>
-          <small
-            *ngIf="!contrasena.valid && contrasena.touched"
-            class="invalid-feedback d-block"
-          >
-            *La contraseña debe tener al entre 8 y 16 caracteres, al menos un
-            dígito, al menos una minúscula y al menos una mayúscula. Puede tener
-            otros símbolos.
-          </small>
+
           <!-- Password Confirmation -->
 
           <!-- Submit Button -->

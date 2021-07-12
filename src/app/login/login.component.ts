@@ -36,35 +36,25 @@ export class LoginComponent implements OnInit {
         this.usuarioService.singUp(this.usuario, true).subscribe(response => {
           //usuario identity
           this.identity = response
-
           //persitencia
-
-
-
           sessionStorage.setItem('token', this.token);
           sessionStorage.setItem('identity', JSON.stringify(this.identity));
           ;
 
-          console.log("esta en una identifiacion" + this.identity.rol);
           JSON.stringify(this.identity);
 
           sessionStorage.setItem("user", this.identity.rol);
           if (this.identity.rol = "ADMINISTRADOR") {
             this.router.navigate(['/', 'Administrador']);
           } else if (this.identity.rol = null) {
-
-            console.log("usuario normal")
+          } else if (this.identity.rol = this.identity.rol = "COORDINADOR") {
+          } else if (this.identity.rol = this.identity.rol = "MONITOR") {
           }
 
         });
-
-
-
       } else {
         this.status = 'error'
-
       }
-
     }, error => {
       console.log(<any>error)
     });

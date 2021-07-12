@@ -30,5 +30,9 @@ export class AdminComponent implements OnInit {
       });
     });
   }
+  cerrrasSesion() {
 
+
+
+  }
 }

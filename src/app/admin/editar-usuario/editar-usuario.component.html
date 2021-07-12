@@ -108,10 +108,11 @@
                   class="form-control bg-white border-left-0 border-md"
                 />
               </div>
-              <small
-                *ngIf="!contrasena.valid && contrasena.touched"
-                class="invalid-feedback d-block"
-              >
+              <small *ngIf="!contrasena.valid" class="invalid-feedback d-block">
+                <strong
+                  >si no ingresas la contraseña no es necesaria
+                  ingresarla</strong
+                >
                 *La contraseña debe tener al entre 8 y 16 caracteres, al menos
                 un dígito, al menos una minúscula y al menos una mayúscula.
                 Puede tener otros símbolos.
@@ -123,7 +124,6 @@
               value="Registrarme"
               class="mat-flat-btton"
               [mat-dialog-close]="true"
-              [disabled]="registerForm.invalid"
             />
             <!--/.row-->
 

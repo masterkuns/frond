@@ -9,12 +9,17 @@ export class RouteGuardService {
   constructor(private router: Router) { }
 
 
-  public canActivate(route: ActivatedRouteSnapshot) {
+  public canActivate(route: ActivatedRouteSnapshot,) {
     let user = sessionStorage.getItem('user');
+
     if (user == 'ADMINISTRADOR') {
       return true;
     }
     this.router.navigate(['/', 'login']);
     return false;
+
   }
+
+
+
 }

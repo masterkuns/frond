@@ -1,0 +1,32 @@
+.center {
+  margin: auto;
+  float: right;
+  width: 100%;
+  border: 3px solid black;
+  padding: auto;
+}
+
+.input{
+  display: flex;
+  margin:  2rem 0;
+  border: 3px solid black;
+}
+
+.right{ 
+  display: flex;
+  margin: auto;
+  float: right;
+
+
+  
+
+  
+}
+.container{
+
+  display: flex;
+  flex-direction: column;
+  width:max-content;
+  height:max-content;
+}
+

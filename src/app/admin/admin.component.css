@@ -55,7 +55,7 @@ a:focus {
     left: -250px;
     height: 100vh;
     z-index: 999;
-    background: #7386D5;
+    background: #080808;
     color: #fff;
     transition: all 0.3s;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
@@ -68,7 +68,7 @@ a:focus {
     height: 35px;
     line-height: 35px;
     text-align: center;
-    background: #7386D5;
+    background: #080808;
     position: absolute;
     top: 10px;
     right: 10px;
@@ -79,7 +79,7 @@ a:focus {
 }
 #dismiss:hover {
     background: #fff;
-    color: #7386D5;
+    color: #080808;
 }
 .overlay {
     display: none;
@@ -97,11 +97,11 @@ a:focus {
 }
 #sidebar .sidebar-header {
     padding: 20px;
-    background: #6d7fcc;
+    background: #080808;
 }
 #sidebar ul.components {
     padding: 20px 0;
-    border-bottom: 1px solid #47748b;
+    border-bottom: 1px solid  #fff;
 }
 #sidebar ul p {
     color: #fff;
@@ -115,13 +115,13 @@ a:focus {
     text-decoration: none;
 }
 #sidebar ul li a:hover {
-    color: #7386D5;
+    color: #575757;
     background: #fff;
 }
 #sidebar ul li.active>a,
 a[aria-expanded="true"] {
     color: #fff;
-    background: #6d7fcc;
+    background: #080808;
 }
 a[data-toggle="collapse"] {
     position: relative;
@@ -150,11 +150,11 @@ ul.CTAs a {
 }
 a.download {
     background: #fff;
-    color: #7386D5;
+    color: #080808;
 }
 a.article,
 a.article:hover {
-    background: #6d7fcc !important;
+    background: #080808 !important;
     color: #fff !important;
 }
 /* ---------------------------------------------------

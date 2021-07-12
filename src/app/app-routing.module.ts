@@ -17,22 +17,26 @@ const routes: Routes = [
 
         loadChildren: () => import('./general/general.module').then(m => m.GeneralModule)
       },
-      {
-        path: 'coordinador',
 
-        loadChildren: () => import('./coordinador/coordinador.module').then(m => m.CoordinadorModule)
-      },
 
       { path: 'register', component: UsuariosComponent },
     ]
   },
 
-
+  {
+    path: 'coordinador',
+    canActivate: [RouteGuardService],
+    loadChildren: () => import('./coordinador/coordinador.module').then(m => m.CoordinadorModule)
+  },
 
   {
     path: 'Administrador',
+    data: {
+      rol: 'ADMINISTRADOR'
+    },
     canActivate: [RouteGuardService],
     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
+
   },
 
 

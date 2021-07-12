@@ -12,7 +12,7 @@ export class EditarUsuarioComponent implements OnInit {
   @Input() usuario: Usuarios;
   public archivos: any = [];
   pageTitle: String;
-  public usuarios: Usuarios;
+
   public status: String;
   public estado: boolean;
   mensaje: string;
@@ -23,7 +23,7 @@ export class EditarUsuarioComponent implements OnInit {
       this.pageTitle = "registro",
       this.status = "",
       this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
-    this.usuarios = new Usuarios(1, '', '', 0, '', '', '', '');
+
   }
   public editUsuarioForm = new FormGroup({
 
@@ -39,8 +39,8 @@ export class EditarUsuarioComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  onSubmit(Form: any) {
-    this.usuarioService.registerAdmin(this.usuario).subscribe(response => {
+  editUsuario(Form: any) {
+    this.usuarioService.updateByAdmin(this.usuario, this.usuario.id).subscribe(response => {
       if (response.status == "success") {
         this.status = response.status;
 
@@ -56,9 +56,7 @@ export class EditarUsuarioComponent implements OnInit {
     })
 
   }
-  editUsuario(form: any) {
 
-  }
 }
 function input() {
   throw new Error('Function not implemented.');
