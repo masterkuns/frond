@@ -25,19 +25,13 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
   @Output() private textoEmitido = new EventEmitter<string>();
   @ViewChild(MatPaginator, { static: true }) paginator!: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort!: MatSort;
-
-
-
+  
   constructor(private usuarioService: UsuariosService, public dialog: MatDialog) {
-
     this.usuario = new Usuarios(1, '', '', 0, '', '', '', '');
-
   }
-
   ngOnInit(): void {
     this.mostrarDatos();
   }
-
   mostrarDatos() {
 
     this.usuarioService.getAllCoordinadores().subscribe(result => {
@@ -50,10 +44,7 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator = this.paginator;
 
     });
-
   }
-
-
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
@@ -92,8 +83,6 @@ export class AdminTableComponent implements OnInit, AfterViewInit {
         }
         )
       } else {
-
-
 
       }
 

@@ -30,7 +30,6 @@ export class AdmincrudComponent implements OnInit {
     this.usuarioService.registerAdmin(this.usuario).subscribe(response => {
       if (response.status == "success") {
         this.status = response.status;
-        this.mensaje = 'xd';
         this.textoEmitido.emit(this.mensaje);
         Form.reset();
       } else {
@@ -56,7 +55,7 @@ export class AdmincrudComponent implements OnInit {
         formularioDatos.append('file', archivo);
       });
       this.usuarioService.subirUsuarios(formularioDatos).subscribe(res => {
-        7
+        
         console.log('respuesta', res);
       })
 
